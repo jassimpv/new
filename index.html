@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>WebRTC Video Conferencing</title>
+        <title>Through Me</title>
 
         <script>
             if(!location.hash.replace('#', '').length) {
@@ -18,15 +18,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <link rel="author" type="text/html" href="https://plus.google.com/+MuazKhan">
-        <meta name="author" content="Muaz Khan">
+        <link rel="author" type="text/html" href="http://jassimpv.000webhostapp.com/">
+        <meta name="author" content="Mohammed Jassim">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-        <meta name="title" content="Video Conferencing" />
-        <meta name="description" content="Video Conferencing using WebRTC." />
-        <meta name="keywords" content="WebRTC, Video Conferencing, Demo, Example, Experiment" />
+        <meta name="title" content="Through Me" />
+        <meta name="description" content="video conferencing " />
+        <meta name="keywords" content="" />
 
         <link rel="stylesheet" href="style.css">
+        <link rel = "icon" href ="logo.jpg"  type = "image/x-icon"> 
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
         <style>
@@ -45,7 +46,8 @@
                 border-radius: 1px;
                 font-size: 2em;
                 margin: .2em;
-                width: 30%;
+                width:75%;
+                
             }
 
             .setup {
@@ -57,6 +59,35 @@
                 margin-top: 8px;
                 position: absolute;
             }
+            .img{
+                width: 70px;
+                height: 70px;
+            }
+            .h3text {
+        color: #3072b3;
+    text-align: center;
+
+    
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   height: 4%;
+   width: 100%;
+    background-color: #3072b3;
+   color: white;
+   text-align: center;
+   }
+
+.videos
+{
+    width:50;
+    height: 200;
+}
+.no-outline:focus {
+      outline: none;
+      }
 
             p { padding: 1em; }
 
@@ -65,6 +96,53 @@
                 border-left: 1px solid rgb(189, 189, 189);
                 padding: .5em;
             }
+            .title
+            {
+                font-size: 20px;
+                color: #3072b3;
+    text-align: center;
+            }
+            @media only screen and (max-width:800px) {
+  /* For tablets: */
+  .experiment{
+    width: 80%;
+    padding: 0;
+  }
+  
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  .experiment  {
+    width: 100%;
+  }
+  .setup {
+   border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    font-size: 89%;
+    height: 40px;
+    margin-left: -5px;
+    margin-top: 5px;
+    position: absolute;
+    margin-right: 17px;
+}
+input{
+    width:65%;
+}
+       .h3text {
+        color: #3072b3;
+    text-align: center;
+    font-size: small;
+}
+.title
+{
+    font-size: 15px;
+}
+.img{
+                width: 50px;
+                height: 50px;
+            }
+
+}
         </style>
         <script>
             document.createElement('article');
@@ -85,8 +163,8 @@
     <body>
         <article>
             <header style="text-align: center;">
-                <h1>
-                    Through Me
+                <h1 class="title">
+                   <img src="logo.jpg" class="img"> <b>THROUGH ME</b>
                 </h1>
           
             </header>
@@ -101,10 +179,10 @@
 
             </section>
             <!-- just copy this <section> and next script -->
-            <section class="experiment" style="text-align: center;">
+            <section class="experiment" >
                 <section>
-                    <h3 >CREATE A NEW ROOM</h3>
-                    <input type="text" id="conference-name" placeholder="" style="width: 75%;"">
+                    <h3 class="h3text">CREATE A NEW ROOM</h3>
+                    <input type="text" id="conference-name" class="text" placeholder="" >
                     <button id="setup-new-room" class="setup">New Room</button>
                 </section>
 
@@ -112,7 +190,7 @@
                 <table style="width: 100%;" id="rooms-list"></table>
 
                 <!-- local/remote videos container -->
-                <div id="videos-container"></div>
+                <div id="videos-container" class="videos"></div>
             </section>
 
             <script>
@@ -272,7 +350,7 @@
                 (function() {
                     var uniqueToken = document.getElementById('unique-token');
                     if (uniqueToken)
-                        if (location.hash.length > 2) uniqueToken.parentNode.parentNode.parentNode.innerHTML = '<input type="text" value="' + location.href + '" id="myInput" style="width: 0%;"><button onclick="myFunction()"><i class="fas fa-copy" style="font-size:24px;"></i></button> <b>CLICK HERE TO COPY ROOM LINK<b><br>';
+                        if (location.hash.length > 2) uniqueToken.parentNode.parentNode.parentNode.innerHTML = '<input type="text" value="' + location.href + '" id="myInput" style="width: 0%;" class="no-outline"><button onclick="myFunction()"><i class="fas fa-copy" style="font-size:24px;"></i></button> <b class="h3text">CLICK HERE TO COPY ROOM LINK<b><br>';
                         else uniqueToken.innerHTML = uniqueToken.parentNode.parentNode.href = '#' + (Math.random() * new Date().getTime()).toString(36).toUpperCase().replace( /\./g , '-');
                 })();
 
@@ -289,10 +367,10 @@
                         length = videos.length, video;
 
                     var minus = 130;
-                    var windowHeight = 700;
-                    var windowWidth = 600;
+                    var windowHeight = 200;
+                    var windowWidth = 200;
                     var windowAspectRatio = windowWidth / windowHeight;
-                    var videoAspectRatio = 4 / 3;
+                    var videoAspectRatio = 3 / 3;
                     var blockAspectRatio;
                     var tempVideoWidth = 0;
                     var maxVideoWidth = 0;
@@ -323,9 +401,9 @@
 
        
 
-        <footer>
-            
-        </footer>
+        <div class="footer">
+   -.-
+</div>
 
         <!-- commits.js is useless for you! -->
         <script src="https://www.webrtc-experiment.com/commits.js" async> </script>
