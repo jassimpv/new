@@ -26,7 +26,8 @@
         <meta name="description" content="Video Conferencing using WebRTC." />
         <meta name="keywords" content="WebRTC, Video Conferencing, Demo, Example, Experiment" />
 
-        <link rel="stylesheet" href="https://www.webrtc-experiment.com/style.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
         <style>
             audio, video {
@@ -85,22 +86,26 @@
         <article>
             <header style="text-align: center;">
                 <h1>
-                    WebRTC Video Conferencing
+                    Through Me
                 </h1>
           
             </header>
 
            
-
-            <!-- just copy this <section> and next script -->
             <section class="experiment">
                 <section>
                     <span>
                         Private ?? <a href="/video-conferencing/" target="_blank" title="Open this link in new tab. Then your conference room will be private!"><code><strong id="unique-token">#123456789</strong></code></a>
                     </span>
+                </section>
 
-                    <input type="text" id="conference-name" placeholder="Conference Name" style="width: 50%;">
-                    <button id="setup-new-room" class="setup">Setup New Conference</button>
+            </section>
+            <!-- just copy this <section> and next script -->
+            <section class="experiment" style="text-align: center;">
+                <section>
+                    <h3 >CREATE A NEW ROOM</h3>
+                    <input type="text" id="conference-name" placeholder="" style="width: 75%;"">
+                    <button id="setup-new-room" class="setup">New Room</button>
                 </section>
 
                 <!-- list of all available conferencing rooms -->
@@ -267,9 +272,17 @@
                 (function() {
                     var uniqueToken = document.getElementById('unique-token');
                     if (uniqueToken)
-                        if (location.hash.length > 2) uniqueToken.parentNode.parentNode.parentNode.innerHTML = '<h2 style="text-align:center;display: block;"><a href="' + location.href + '" target="_blank">Right click to copy & share this private link</a></h2>';
+                        if (location.hash.length > 2) uniqueToken.parentNode.parentNode.parentNode.innerHTML = '<input type="text" value="' + location.href + '" id="myInput" style="width: 0%;"><button onclick="myFunction()"><i class="fas fa-copy" style="font-size:24px;"></i></button> <b>CLICK HERE TO COPY ROOM LINK<b><br>';
                         else uniqueToken.innerHTML = uniqueToken.parentNode.parentNode.href = '#' + (Math.random() * new Date().getTime()).toString(36).toUpperCase().replace( /\./g , '-');
                 })();
+
+                function myFunction() {
+                    var copyText = document.getElementById("myInput");
+                    copyText.select();
+                    copyText.setSelectionRange(0, 99999)
+                    document.execCommand("copy");
+                    alert("Copied the text: " + copyText.value);
+                    }
 
                 function scaleVideos() {
                     var videos = document.querySelectorAll('video'),
