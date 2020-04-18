@@ -64,32 +64,28 @@
                 height: 70px;
             }
             .h3text {
-        color: #3072b3;
-    text-align: center;
+                color: #3072b3;
+                text-align: center;
+            }
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                height: 4%;
+                width: 100%;
+                background-color: #3072b3;
+                color: white;
+                text-align: center;
+            }
 
-    
-}
-.footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   height: 4%;
-   width: 100%;
-    background-color: #3072b3;
-   color: white;
-   text-align: center;
-   }
+  
+            .no-outline:focus {
+                outline: none;
+            }
 
-.videos
-{
-    width:50;
-    height: 200;
-}
-.no-outline:focus {
-      outline: none;
-      }
-
-            p { padding: 1em; }
+            p { 
+                padding: 1em;
+            }
 
             li {
                 border-bottom: 1px solid rgb(189, 189, 189);
@@ -100,56 +96,57 @@
             {
                 font-size: 20px;
                 color: #3072b3;
-    text-align: center;
+                text-align: center;
             }
             @media only screen and (max-width:800px) {
   /* For tablets: */
-  .experiment{
-    width: 80%;
-    padding: 0;
-  }
+                .experiment {
+                    width: 80%;
+                    padding: 0;
+             }
   
-}
-@media only screen and (max-width:500px) {
-  /* For mobile phones: */
-  .experiment  {
-    width: 100%;
-  }
-  .setup {
-   border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    font-size: 89%;
-    height: 40px;
-    margin-left: -5px;
-    margin-top: 5px;
-    position: absolute;
-    margin-right: 17px;
-}
-input{
-    width:65%;
-}
-       .h3text {
-        color: #3072b3;
-    text-align: center;
-    font-size: small;
-}
-.title
-{
-    font-size: 15px;
-}
-.img{
+            }
+            @media only screen and (max-width:500px) {
+        /* For mobile phones: */
+                .experiment  {
+                    width: 100%;
+                }
+                .setup {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
+                    font-size: 89%;
+                    height: 40px;
+                    margin-left: -5px;
+                    margin-top: 5px;
+                    position: absolute;
+                    margin-right: 17px;
+                }
+                input{
+                    width:65%;
+                }
+                .h3text {
+                    color: #3072b3;
+                    text-align: center;
+                    font-size: small;
+                }
+                .title
+                {
+                    font-size: 15px;
+                }
+            .img{
                 width: 50px;
                 height: 50px;
             }
 
-}
+            }
         </style>
         <script>
             document.createElement('article');
             document.createElement('footer');
         </script>
+    
 
-        <!-- script used to stylize video element -->
+        
         <script src="https://www.webrtc-experiment.com/getMediaElement.min.js"> </script>
 
         <script src="https://www.webrtc-experiment.com/socket.io.js"> </script>
@@ -166,6 +163,8 @@ input{
                 <h1 class="title">
                    <img src="logo.jpg" class="img"> <b>THROUGH ME</b>
                 </h1>
+
+  
           
             </header>
 
@@ -174,6 +173,7 @@ input{
                 <section>
                     <span>
                         Private ?? <a href="/video-conferencing/" target="_blank" title="Open this link in new tab. Then your conference room will be private!"><code><strong id="unique-token">#123456789</strong></code></a>
+
                     </span>
                 </section>
 
@@ -350,17 +350,11 @@ input{
                 (function() {
                     var uniqueToken = document.getElementById('unique-token');
                     if (uniqueToken)
-                        if (location.hash.length > 2) uniqueToken.parentNode.parentNode.parentNode.innerHTML = '<input type="text" value="' + location.href + '" id="myInput" style="width: 0%;" class="no-outline"><button onclick="myFunction()"><i class="fas fa-copy" style="font-size:24px;"></i></button> <b class="h3text">CLICK HERE TO COPY ROOM LINK<b><br>';
+                        if (location.hash.length > 2) uniqueToken.parentNode.parentNode.parentNode.innerHTML = '<input type="text" value="' + location.href + '" id="myInput" style="width: 0%;" class="no-outline"><button onclick="copyElementText(this.id)"><i class="fas fa-copy" style="font-size:24px;"></i></button> <b class="h3text">CLICK HERE TO COPY ROOM LINK<b><br>';
                         else uniqueToken.innerHTML = uniqueToken.parentNode.parentNode.href = '#' + (Math.random() * new Date().getTime()).toString(36).toUpperCase().replace( /\./g , '-');
                 })();
 
-                function myFunction() {
-                    var copyText = document.getElementById("myInput");
-                    copyText.select();
-                    copyText.setSelectionRange(0, 99999)
-                    document.execCommand("copy");
-                    alert("Copied the text: " + copyText.value);
-                    }
+                
 
                 function scaleVideos() {
                     var videos = document.querySelectorAll('video'),
@@ -402,7 +396,7 @@ input{
        
 
         <div class="footer">
-   -.MOHAMMED JASSIM.-
+   -.-
 </div>
 
         <!-- commits.js is useless for you! -->
